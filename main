@@ -38,18 +38,22 @@ button.MouseButton1Click:Connect(function()
     local userInput = textBox.Text:gsub("%s+", "") -- Remove whitespace from input
     
     if validKey == userInput then
-        textBox.Text = "✓ Valid Key!"
+        textBox.Text = ""
+        textBox.PlaceholderText = "✓ Valid Key!"
         textBox.BackgroundColor3 = Color3.fromRGB(200, 255, 200)
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/KAY714/mainlst/refs/heads/main/mainlst.txt"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/KAY714/mainlst/refs/heads/main/mainlst.txt"))()
+
         wait(1)
         screenGui:Destroy()
     else
-        textBox.Text = "✗ Invalid Key!"
+        textBox.Text = ""
+        textBox.PlaceholderText = "✗ Invalid Key!"
         textBox.BackgroundColor3 = Color3.fromRGB(255, 200, 200)
     end
     
-    -- Reset after 2 seconds
-    task.wait(2)
+    -- Reset after 1 seconds
+    task.wait(1)
     textBox.Text = ""
+    textBox.PlaceholderText = "Enter Key"
     textBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 end)
